@@ -11,8 +11,7 @@ Configuring the **I2C** port is application overhead and will not be done during
 - Enjoy!
 # Status
 - [x] Basic features like tune, seek, volume, bass etc
-- [ ] RDS Data
-  - [x] Soon..
+- [ ] RDS Data (In progress)
 # Contribution
 You can too contribute to this project!
 
