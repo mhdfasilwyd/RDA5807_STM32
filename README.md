@@ -1,5 +1,5 @@
 # RDA5807 Library for STM32
-RDA5807 library for STM32 using standard peripheral library. This is a port of https://github.com/pu2clr/RDA5807 with little bit of changes here and there..
+RDA5807 library for STM32 using standard peripheral library. This is a port of [RDA5807|PU2CLR](https://github.com/pu2clr/RDA5807) with little bit of changes here and there..
 # Code Inro
 Library | Application | Support
 ------- | ----------- | -------
