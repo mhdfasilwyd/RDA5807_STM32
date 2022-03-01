@@ -1,5 +1,5 @@
-# RDA5807 Library for STM32 (Tested in STM32F103C8T6)
-**RDA5807** library for **STM32** using standard peripheral library. This is a port of [RDA5807 Library(PU2CLR)](https://github.com/pu2clr/RDA5807) with little bit of changes here and there..
+# RDA5807 Library for STM32
+**RDA5807** library for **STM32** using standard peripheral library. This is a port of [RDA5807 Library(PU2CLR)](https://github.com/pu2clr/RDA5807) with little bit of changes here and there.. (Tested in **STM32F103C8T6**)
 # Application
 Configuring the **I2C** port is application overhead and will not be done during **API** initialisation. This is to make all boards support the **API** without actually changing library, not sure though!
 # Building
