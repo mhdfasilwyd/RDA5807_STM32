@@ -7,7 +7,7 @@ RDA_5807 | inc | setup.sh
 | src | stlink.sh
 |     | Makefile
 # Application
-Configuring the I2C port is application overhead and will not be done during API initialisation. This is to make all boards support the API without actually changing library changes, actually not sure though!
+Configuring the I2C port is application overhead and will not be done during API initialisation. This is to make all boards support the API without actually changing library, not sure though!
 # Building
 - Configure your linux for STM32 environment (Compiler sort of..)
 - Install ST-Link driver for linux (Use **stlink.sh** script..)
