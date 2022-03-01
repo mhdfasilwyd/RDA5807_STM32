@@ -4,8 +4,8 @@ RDA5807 library for STM32 using standard peripheral library. This is a port of [
 Library | Application | Support
 ------- | ----------- | -------
 RDA_5807 | inc | setup.sh
-         | src | stlink.sh
-         |     | Makefile
+ | src | stlink.sh
+ |     | Makefile
 # Application
 Configuring the I2C port is application overhead and will not be done during API initialisation. This is to make all boards support the API without actually changing library, not sure though!
 # Building
