@@ -91,15 +91,15 @@ void SysTick_Handler()
 
 void I2C_Start(I2C_TypeDef* I2Cx, uint8_t address, uint8_t direction)
 {
-	// Wait until I2C1 is not busy anymore
+	// Wait until I2Cx is not busy anymore
 	while(I2C_GetFlagStatus(I2Cx, I2C_FLAG_BUSY));
-	// Send I2C1 START condition 
+	// Send I2Cx START condition 
 	I2C_GenerateSTART(I2Cx, ENABLE);
-	// Wait for I2C1 EV5 --- Slave has acknowledged start condition
+	// Wait for I2Cx EV5 --- Slave has acknowledged start condition
 	while(!I2C_CheckEvent(I2Cx, I2C_EVENT_MASTER_MODE_SELECT));
 	// Send slave Address for write 
 	I2C_Send7bitAddress(I2Cx, address << 1, direction);
-	/* Wait for I2C1 EV6, check if
+	/* Wait for I2Cx EV6, check if
 	 * either slave has acknowledged Master transmitter or
 	 * master receiver mode, depending on the transmission
 	 * direction
@@ -116,13 +116,13 @@ void I2C_Start(I2C_TypeDef* I2Cx, uint8_t address, uint8_t direction)
 
 /* This function transmits one byte to the slave device
  * Parameters:
- * I2Cx --- the I2C peripheral e.g.I2C0, I2C1
+ * I2Cx --- the I2C peripheral e.g.I2C1, I2C2
  * data --- the data byte to be transmitted
  */
 void I2C_Write(I2C_TypeDef* I2Cx, uint8_t data)
 {
 	I2C_SendData(I2Cx, data);
-	// Wait for I2C1 EV8_2 --- byte has been transmitted
+	// Wait for I2Cx EV8_2 --- byte has been transmitted
 	while(!I2C_CheckEvent(I2Cx, I2C_EVENT_MASTER_BYTE_TRANSMITTED));
 }
 
@@ -193,7 +193,7 @@ void getStatus(I2C_TypeDef* I2Cx, uint8_t reg)
 
     if (reg < 0x0A || reg > 0x0F)
     {
-        return;  // Maybe not necessary.
+        return; // Maybe not necessary.
     }
 
     I2C_Start(I2Cx, I2C_ADDR_DIRECT_ACCESS, I2C_Direction_Transmitter);
