@@ -1,7 +1,8 @@
 #include <RDA_5807.h>
 #include <stdlib.h>
 
-#define WRITE_DELAY 100
+#define WRITE_DELAY 3
+#define MIN_DELAY 1
 
 const uint16_t startBand[4] = {8700, 7600, 7600, 6500};
 const uint16_t endBand[4] = {10800, 9100, 10800, 7600};
@@ -238,7 +239,7 @@ void waitAndFinishTune(I2C_TypeDef* I2Cx)
 	{
         getStatus(I2Cx, REG0A);
 #ifdef SYSTICK_DELAY
-        Delay(10);
+        Delay(MIN_DELAY);
 #endif
     }
 	while (handle.reg0A.refined.STC == 0);
@@ -253,16 +254,16 @@ void RDA_Init(I2C_TypeDef* I2Cx)
 {
 #ifdef SYSTICK_DELAY
     Delay_Init();
-    Delay(1);
+    Delay(MIN_DELAY);
 #endif
     handle.reg02.raw = 0x0;
     handle.reg02.refined.NEW_METHOD = 0;
-    handle.reg02.refined.RDS_EN = 0;  // RDS disable
+    handle.reg02.refined.RDS_EN = 0; // RDS disable
     handle.reg02.refined.CLK_MODE = CLOCK_32K;
     handle.reg02.refined.RCLK_DIRECT_IN = OSCILLATOR_TYPE_CRYSTAL;
-    handle.reg02.refined.MONO = 1;    // Force mono
-    handle.reg02.refined.DMUTE = 1;   // Normal operation
-    handle.reg02.refined.DHIZ = 1;    // Normal operation
+    handle.reg02.refined.MONO = 1; // Force mono
+    handle.reg02.refined.DMUTE = 1; // Normal operation
+    handle.reg02.refined.DHIZ = 1; // Normal operation
     handle.reg02.refined.ENABLE = 1;
     handle.reg02.refined.BASS = 1;
     handle.reg02.refined.SEEK = 0;
@@ -272,7 +273,7 @@ void RDA_Init(I2C_TypeDef* I2Cx)
     handle.reg05.refined.INT_MODE = 0;
     handle.reg05.refined.LNA_PORT_SEL = 2;
     handle.reg05.refined.LNA_ICSEL_BIT = 0;
-    handle.reg05.refined.SEEKTH = 8;  // 0B1000
+    handle.reg05.refined.SEEKTH = 8; // 0B1000
     handle.reg05.refined.VOLUME = 0;
     registerWrite(I2Cx, REG05, handle.reg05.raw);
 }

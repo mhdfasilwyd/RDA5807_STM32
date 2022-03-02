@@ -19,7 +19,7 @@ Configuring the **I2C** port is application overhead and will not be done during
   - [x] Mute and more...
 - [x] RDS Data
   - [x] Status and property
-  - [ ] RDS Data (In progress)
+  - [ ] RDS features (In progress)
 # Contribution
 You can too contribute to this project!
 

@@ -7,5 +7,6 @@ cd stlink
 cmake .
 sudo make install
 sudo ldconfig
+cd ..
 rm -R stlink
 
